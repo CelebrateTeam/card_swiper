@@ -288,8 +288,15 @@ class SwiperPagination extends SwiperPlugin {
         ? Alignment.bottomCenter
         : Alignment.centerRight;
     Widget child = Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(22)),
+        color: Colors.black26,
+      ),
       margin: margin,
-      child: builder.build(context, config),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: builder.build(context, config),
+      ),
     );
     if (!config.outer!) {
       child = Align(
