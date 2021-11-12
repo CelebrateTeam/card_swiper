@@ -48,7 +48,7 @@ class SwiperControl extends SwiperPlugin {
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(50)),
           child: Container(
-            color: Colors.black26,
+            color: Colors.black38,
             child: Padding(
               padding: internalPadding,
               child: RotatedBox(
