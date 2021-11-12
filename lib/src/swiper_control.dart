@@ -33,7 +33,7 @@ class SwiperControl extends SwiperPlugin {
   });
 
   Widget buildButton(SwiperPluginConfig? config, Color color, IconData iconDaga,
-      int quarterTurns, bool previous) {
+      int quarterTurns, bool previous, EdgeInsetsGeometry internalPadding) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
@@ -43,16 +43,25 @@ class SwiperControl extends SwiperPlugin {
           config!.controller.next(animation: true);
         }
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(50)),
-        child: RotatedBox(
-            quarterTurns: quarterTurns,
-            child: Icon(
-              iconDaga,
-              semanticLabel: previous ? 'Previous' : 'Next',
-              size: size,
-              color: color,
-            )),
+      child: Padding(
+        padding: padding,
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          child: Container(
+            color: Colors.black26,
+            child: Padding(
+              padding: internalPadding,
+              child: RotatedBox(
+                  quarterTurns: quarterTurns,
+                  child: Icon(
+                    iconDaga,
+                    semanticLabel: previous ? 'Previous' : 'Next',
+                    size: size,
+                    color: color,
+                  )),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -81,31 +90,13 @@ class SwiperControl extends SwiperPlugin {
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Padding(
-            padding: padding,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-              child: Container(
-                color: Colors.black26,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10 , bottom: 10, left: 14, right: 6),
-                  child: buildButton(config, prevColor, iconPrevious, 0, true),
-                ),
-              ),
-            ),
+          buildButton(
+            config, prevColor, iconPrevious, 0, true,
+            const EdgeInsets.only(top: 10 , bottom: 10, left: 16, right: 4)
           ),
-          Padding(
-            padding: padding,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-              child: Container(
-                color: Colors.black26,
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: buildButton(config, nextColor, iconNext, 0, false),
-                ),
-              ),
-            ),
+          buildButton(
+            config, nextColor, iconNext, 0, false,
+            const EdgeInsets.all(10)
           )
         ],
       );
@@ -114,31 +105,13 @@ class SwiperControl extends SwiperPlugin {
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Padding(
-            padding: padding,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-              child: Container(
-                color: Colors.black26,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 14 , bottom: 6, left: 10, right: 10),
-                  child: buildButton(config, prevColor, iconPrevious, -3, true),
-                ),
-              ),
-            ),
+          buildButton(
+            config, prevColor, iconPrevious, -3, true,
+            const EdgeInsets.only(top: 14 , bottom: 4, left: 16, right: 10),
           ),
-          Padding(
-            padding: padding,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-              child: Container(
-                color: Colors.black26,
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: buildButton(config, nextColor, iconNext, -3, false),
-                ),
-              ),
-            ),
+          buildButton(
+            config, nextColor, iconNext, -3, false,
+            const EdgeInsets.all(10)
           )
         ],
       );
