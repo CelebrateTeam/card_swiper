@@ -92,7 +92,7 @@ class SwiperControl extends SwiperPlugin {
         children: <Widget>[
           buildButton(
             config, prevColor, iconPrevious, 0, true,
-            const EdgeInsets.only(top: 10 , bottom: 10, left: 16, right: 4)
+            const EdgeInsets.only(top: 10 , bottom: 10, left: 14, right: 6)
           ),
           buildButton(
             config, nextColor, iconNext, 0, false,
@@ -107,11 +107,14 @@ class SwiperControl extends SwiperPlugin {
         children: <Widget>[
           buildButton(
             config, prevColor, iconPrevious, -3, true,
-            const EdgeInsets.only(top: 14 , bottom: 4, left: 16, right: 10),
+            const EdgeInsets.only(top: 14 , bottom: 6, left: 10, right: 10),
           ),
-          buildButton(
-            config, nextColor, iconNext, -3, false,
-            const EdgeInsets.all(10)
+          Padding(
+            padding: padding,
+            child: buildButton(
+              config, nextColor, iconNext, -3, false,
+              const EdgeInsets.all(10)
+            ),
           )
         ],
       );
