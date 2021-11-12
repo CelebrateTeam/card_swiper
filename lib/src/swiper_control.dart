@@ -45,16 +45,24 @@ class SwiperControl extends SwiperPlugin {
       },
       child: Padding(
           padding: padding,
-          child: Container(
-            color: Colors.black,
-            child: RotatedBox(
-                quarterTurns: quarterTurns,
-                child: Icon(
-                  iconDaga,
-                  semanticLabel: previous ? 'Previous' : 'Next',
-                  size: size,
-                  color: color,
-                )),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            child: Container(
+              color: Colors.black12,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Center(
+                  child: RotatedBox(
+                      quarterTurns: quarterTurns,
+                      child: Icon(
+                        iconDaga,
+                        semanticLabel: previous ? 'Previous' : 'Next',
+                        size: size,
+                        color: color,
+                      )),
+                ),
+              ),
+            ),
           )),
     );
   }
