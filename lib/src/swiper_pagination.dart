@@ -294,7 +294,7 @@ class SwiperPagination extends SwiperPlugin {
       ),
       margin: margin,
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(6),
         child: builder.build(context, config),
       ),
     );
