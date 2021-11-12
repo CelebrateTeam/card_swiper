@@ -47,20 +47,14 @@ class SwiperControl extends SwiperPlugin {
           padding: padding,
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(50)),
-            child: Container(
-              color: Colors.black26,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: RotatedBox(
-                    quarterTurns: quarterTurns,
-                    child: Icon(
-                      iconDaga,
-                      semanticLabel: previous ? 'Previous' : 'Next',
-                      size: size,
-                      color: color,
-                    )),
-              ),
-            ),
+            child: RotatedBox(
+                quarterTurns: quarterTurns,
+                child: Icon(
+                  iconDaga,
+                  semanticLabel: previous ? 'Previous' : 'Next',
+                  size: size,
+                  color: color,
+                )),
           )),
     );
   }
@@ -89,8 +83,26 @@ class SwiperControl extends SwiperPlugin {
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          buildButton(config, prevColor, iconPrevious, 0, true),
-          buildButton(config, nextColor, iconNext, 0, false)
+          ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            child: Container(
+              color: Colors.black26,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10 , bottom: 10, left: 14, right: 6),
+                child: buildButton(config, prevColor, iconPrevious, 0, true),
+              ),
+            ),
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            child: Container(
+              color: Colors.black26,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: buildButton(config, nextColor, iconNext, 0, false),
+              ),
+            ),
+          )
         ],
       );
     } else {
@@ -98,8 +110,26 @@ class SwiperControl extends SwiperPlugin {
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          buildButton(config, prevColor, iconPrevious, -3, true),
-          buildButton(config, nextColor, iconNext, -3, false)
+          ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            child: Container(
+              color: Colors.black26,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 14 , bottom: 6, left: 10, right: 10),
+                child: buildButton(config, prevColor, iconPrevious, -3, true),
+              ),
+            ),
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            child: Container(
+              color: Colors.black26,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: buildButton(config, nextColor, iconNext, -3, false),
+              ),
+            ),
+          )
         ],
       );
     }
