@@ -280,7 +280,11 @@ class SwiperPagination extends SwiperPlugin {
     this.key,
     this.margin = const EdgeInsets.all(10.0),
     this.builder = SwiperPagination.dots,
+
+    
+    this.padding = const EdgeInsets.all(6)
   });
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context, SwiperPluginConfig? config) {
@@ -294,7 +298,7 @@ class SwiperPagination extends SwiperPlugin {
       ),
       margin: margin,
       child: Padding(
-        padding: const EdgeInsets.all(6),
+        padding: padding,
         child: builder.build(context, config),
       ),
     );
