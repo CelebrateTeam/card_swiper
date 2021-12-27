@@ -94,12 +94,12 @@ class SwiperControl extends SwiperPlugin {
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          if(disableSwiperControl)
+          if(!disableSwiperControl)
           buildButton(
             config, prevColor, iconPrevious, 0, true,
             const EdgeInsets.only(top: 10 , bottom: 10, left: 14, right: 6)
           ),
-          if(disableSwiperControl)
+          if(!disableSwiperControl)
           buildButton(
             config, nextColor, iconNext, 0, false,
             const EdgeInsets.all(10)
@@ -111,12 +111,12 @@ class SwiperControl extends SwiperPlugin {
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          if(disableSwiperControl)
+          if(!disableSwiperControl)
           buildButton(
             config, prevColor, iconPrevious, -3, true,
             const EdgeInsets.only(top: 14 , bottom: 6, left: 10, right: 10),
           ),
-          if(disableSwiperControl)
+          if(!disableSwiperControl)
           Padding(
             padding: padding,
             child: buildButton(
